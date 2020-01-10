@@ -150,3 +150,11 @@ Atenção: A rota para o exercício d é diferente dos exercícios a, b e c.
     "msg": "Thank you for sending your answer. Results: Response A: true Response B: true: Response C: true Response D: true"
 }
 ```
+
+- Pensamentos iniciais e escolha de tecnologias
+
+Trata-se de um problema de processamento de dados. Os itens "a" e "b" são muito parecidos, mudando apenas o critério de filtro. O "c" e o "d" são levemente diferentes, mas continuam sendo problemas de processamento de dados.
+
+Fiquei com vontade de aprender alguma linguagem de programação funcional para resolver, mas isso adicionaria um tempo a mais que não tenho, já que estou participando de outros processos seletivos que envolvem um desafio (para a mesma data!). Por isso, me restou javascript e python, que são linguagens que eu tenho o conhecimento necessário para resolver o problema, já que já trampei fazendo processamento de dados usando as duas.
+
+Vou de python: assim dá pra usar um Jupyter Notebook e usar o mesmo ambiente pra escrever as reflexões e desenvolver código de fato. :)
