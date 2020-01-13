@@ -14,7 +14,7 @@ from .utils import (
 
 
 def get_unrepeated_ordered_promo_products_by_price_and_id(posts):
-    promotion_posts = [*filter_by_promocao_in_title(posts)]
+    promotion_posts = filter_by_promocao_in_title(posts)
     return [
         *change_price_to_price_field(
             sort_by_price_and_product_id(
@@ -26,15 +26,15 @@ def get_unrepeated_ordered_promo_products_by_price_and_id(posts):
     ]
 
 def get_ordered_insta_posts_over_700_likes(posts):
-    insta_cpc_posts_with_over_700_likes = [
-        *filter_by_likes_greater_than_700(
-            filter_by_instagram_cpc_in_media(posts)
-        )
-    ]
+    insta_cpc_posts_with_over_700_likes = filter_by_likes_greater_than_700(
+        filter_by_instagram_cpc_in_media(posts)
+    )
     return [
         *change_price_to_price_field(
             map_to_post_id_and_price(
-                sort_by_price_and_product_id(insta_cpc_posts_with_over_700_likes)
+                sort_by_price_and_product_id(
+                    insta_cpc_posts_with_over_700_likes
+                )
             )
         )
     ]
