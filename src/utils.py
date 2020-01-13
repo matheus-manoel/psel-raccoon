@@ -1,5 +1,5 @@
 from functools import partial, reduce
-from operator import itemgetter
+from operator import itemgetter, gt
 from datetime import datetime
 
 
@@ -55,11 +55,11 @@ remove_entries_with_duplicated_product_id = partial(
     remove_entries_with_duplicated_field_value, field='product_id'
 )
 
-def filter_by_field_value_greater_than(list_dict, field, comparator):
-    return filter(lambda x: float(x[field]) > comparator, list_dict)
+def filter_by_field_value_comparation(list_dict, field, operator, n_to_compare):
+    return filter(lambda x: operator(float(x[field]), n_to_compare), list_dict)
 
 filter_by_likes_greater_than_700 = partial(
-    filter_by_field_value_greater_than, field='likes', comparator=700
+    filter_by_field_value_comparation, field='likes', operator=gt, n_to_compare=700
 )
 
 def _is_date_a_match(date_string, days, months, years):
