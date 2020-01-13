@@ -25,6 +25,7 @@ def get_unrepeated_ordered_promo_products_by_price_and_id(posts):
         )
     ]
 
+
 def get_ordered_insta_posts_over_700_likes(posts):
     insta_cpc_posts_with_over_700_likes = filter_by_likes_greater_than_700(
         filter_by_instagram_cpc_in_media(posts)
@@ -39,6 +40,7 @@ def get_ordered_insta_posts_over_700_likes(posts):
         )
     ]
 
+
 def get_likes_sum_of_paid_medias_posts_in_may_2019(posts):
     return int(
         sum_likes(
@@ -48,12 +50,15 @@ def get_likes_sum_of_paid_medias_posts_in_may_2019(posts):
         )
     )
 
+
 def _is_price_diff_in_control(products_control, post):
     return (products_control.get(post['product_id']) and
-                products_control.get(post['product_id']) != post['price'])
+            products_control.get(post['product_id']) != post['price'])
+
 
 def _add_product_and_price_to_control(products_control, post):
     return {**products_control, post['product_id']: post['price']}
+
 
 def get_ordered_product_errors(posts):
     products_control = {}
@@ -63,6 +68,8 @@ def get_ordered_product_errors(posts):
         if _is_price_diff_in_control(products_control, post):
             products_with_error = products_with_error.union({post['product_id']})
         else:
-            products_control = _add_product_and_price_to_control(products_control, post)
+            products_control = _add_product_and_price_to_control(
+                products_control, post
+            )
 
     return sorted([*products_with_error])
